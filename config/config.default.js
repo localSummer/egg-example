@@ -23,11 +23,19 @@ module.exports = appInfo => {
     serverUrl: 'https://hacker-news.firebaseio.com/v0',
   };
 
+  // 给中间件robot传入的配置项
   exports.robot = {
     ua: [
       /Baiduspider/i,
     ],
   };
-
+  config.sequelize = {
+    dialect: 'mysql',
+    host: '127.0.0.1',
+    port: 3306,
+    user: 'root',
+    password: 'Anicl0ud',
+    database: 'egg-sequelize-doc-default',
+  };
   return config;
 };
