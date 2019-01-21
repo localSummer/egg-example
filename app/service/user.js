@@ -12,7 +12,12 @@ class User extends Service {
   }
 
   async find(id) {
-    const user = await this.ctx.model.User.findById(id);
+    const user = await this.ctx.model.User.findById(id, { // FIXME: 查找某个用户下所有的文章
+      include: [{
+        model: this.ctx.model.Post,
+        as: 'posts', // 与model中定义的关联别名一致
+      }],
+    });
     if (!user) {
       this.ctx.throw(404, 'user not found');
     }

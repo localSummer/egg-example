@@ -10,7 +10,7 @@ module.exports = app => {
     updated_at: DATE,
   });
 
-  User.prototype.associate = () => {
+  User.associate = () => {
     app.model.User.hasMany(app.model.Post, {
       as: 'posts',
     });
