@@ -18,7 +18,7 @@ module.exports = app => {
   Post.associate = () => {
     app.model.Post.belongsTo(app.model.User, {
       as: 'user',
-      foreignKey: 'user_id',
+      // foreignKey: 'user_id',
     });
   };
 
